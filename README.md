@@ -3,10 +3,11 @@
 
 # 🪄 AI Humanizer | 杰哥的降AI工具
 
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![PyQt6](https://img.shields.io/badge/GUI-PyQt6-green?style=for-the-badge&logo=qt&logoColor=white)](https://riverbankcomputing.com/software/pyqt/)
-[![License](https://img.shields.io/badge/License-MIT-orange?style=for-the-badge)](LICENSE)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg?style=for-the-badge)](https://github.com/CyberDoctor2023/AI-Humanizer/graphs/commit-activity)
+[![License](https://img.shields.io/github/license/CyberDoctor2023/AI-Humanizer?style=flat-square&label=License&color=007EC6)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![PyQt6](https://img.shields.io/badge/GUI-PyQt6-41CD52?style=flat-square&logo=qt&logoColor=white)](https://riverbankcomputing.com/software/pyqt/)
+[![Repo Size](https://img.shields.io/github/repo-size/CyberDoctor2023/AI-Humanizer?style=flat-square&color=orange)](https://github.com/CyberDoctor2023/AI-Humanizer)
+[![Last Commit](https://img.shields.io/github/last-commit/CyberDoctor2023/AI-Humanizer?style=flat-square&color=959DA5)](https://github.com/CyberDoctor2023/AI-Humanizer/commits/main)
 
 **A lightweight, magic tool to make AI-generated text feel human again.**  
 **一个让 AI 生成文本重返“人性”的轻量级魔法工具。**
