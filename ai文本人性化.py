@@ -1,6 +1,8 @@
 import sys
 import random
 import re
+import torch
+from transformers import BertTokenizer, BertForMaskedLM
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout,
                              QTextEdit, QPushButton, QProgressBar)
 from PyQt6.QtGui import QPainter, QColor, QLinearGradient
@@ -10,10 +12,12 @@ from PyQt6.QtCore import Qt, QTimer
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
+        self.tokenizer = None
+        self.model = None
         self.initUI()
 
     def initUI(self):
-        self.setWindowTitle("杰哥的降AI工具")
+        self.setWindowTitle("AI 文本人性化")
         self.setGeometry(100, 100, 800, 600)
 
         central_widget = QWidget(self)
@@ -56,6 +60,11 @@ class MainWindow(QMainWindow):
 
             # 格式化文本，确保段落之间有空行
             formatted_text = self.format_paragraphs(input_text)
+
+            # 确保模型已加载
+            self.output_area.setPlainText("正在加载 BERT 模型，请稍候...（首次运行需要下载）")
+            QApplication.processEvents()
+            self.load_bert_model()
 
             # 第一次混淆
             processed_text = self.apply_magic(formatted_text)
@@ -108,7 +117,91 @@ class MainWindow(QMainWindow):
 
         return '\n\n'.join(processed_paragraphs)
 
+    def load_bert_model(self):
+        if self.model is None:
+            try:
+                model_name = 'bert-base-uncased'  # 使用英文模型，如果是中文请改为 bert-base-chinese
+                # 检测是否有中文，简单判断
+                is_chinese = False
+                text = self.input_area.toPlainText()
+                if any(u'\u4e00' <= c <= u'\u9fff' for c in text):
+                     is_chinese = True
+                     model_name = 'bert-base-chinese'
+                
+                self.tokenizer = BertTokenizer.from_pretrained(model_name)
+                self.model = BertForMaskedLM.from_pretrained(model_name)
+                self.model.eval()
+            except Exception as e:
+                self.output_area.setPlainText(f"模型加载失败: {str(e)}")
+
+    def bert_replace(self, text):
+        if not self.model or not self.tokenizer:
+            return text
+            
+        # 简单分句处理，避免太长
+        sentences = re.split(r'([.!?。！？])', text)
+        new_sentences = []
+        
+        for i in range(0, len(sentences), 2):
+            sentence = sentences[i]
+            if len(sentence.strip()) < 5:
+                new_sentences.append(sentence)
+                if i + 1 < len(sentences):
+                    new_sentences.append(sentences[i+1])
+                continue
+                
+            punctuation = ""
+            if i + 1 < len(sentences):
+                punctuation = sentences[i+1]
+                
+            inputs = self.tokenizer(sentence, return_tensors='pt')
+            input_ids = inputs['input_ids'].clone()
+            
+            # 获取非特殊token的索引
+            token_ids = input_ids[0].tolist()
+            special_tokens = self.tokenizer.all_special_ids
+            word_indices = [idx for idx, val in enumerate(token_ids) if val not in special_tokens]
+            
+            if not word_indices:
+                new_sentences.append(sentence + punctuation)
+                continue
+
+            # 随机选择不超过 20% 的词进行替换
+            num_to_mask = max(1, int(len(word_indices) * 0.2))
+            indices_to_mask = random.sample(word_indices, min(len(word_indices), num_to_mask))
+            
+            input_ids[0, indices_to_mask] = self.tokenizer.mask_token_id
+            
+            with torch.no_grad():
+                outputs = self.model(input_ids)
+                predictions = outputs.logits
+            
+            for idx in indices_to_mask:
+                # 获取前 5 个预测结果
+                top_k = 5
+                top_k_indices = torch.topk(predictions[0, idx], top_k).indices.tolist()
+                
+                # 随机选择一个作为替换（避开原词，如果原词也在预测中）
+                original_token = token_ids[idx]
+                candidates = [cand for cand in top_k_indices if cand != original_token and cand not in special_tokens]
+                
+                if candidates:
+                    replacement_id = random.choice(candidates)
+                    token_ids[idx] = replacement_id
+                    
+            final_text = self.tokenizer.decode(token_ids, skip_special_tokens=True)
+            # decode 可能会有空格问题，特别是中文，这里简单处理一下
+            if 'chinese' in self.tokenizer.name_or_path:
+                 final_text = final_text.replace(' ', '')
+            
+            new_sentences.append(final_text + punctuation)
+            
+        return ''.join(new_sentences)
+
     def process_paragraph(self, paragraph):
+        # 先进行 BERT 替换
+        paragraph = self.bert_replace(paragraph)
+        
         words = paragraph.split()
         processed_words = []
         for word in words:

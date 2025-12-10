@@ -32,7 +32,7 @@
 | **🪄 Perturbation Magic** | Introduces random variations to make text appear less machine-generated. |
 | **🎨 Smart Formatting** | Automatically handles paragraph spacing for better readability. |
 | **⚡ Double Magic** | Applies recursive processing layers for stronger, more natural effects. |
-| **🛡️ BERT-Free** | **No heavy models.** We removed BERT to prevent meaning distortion. Logic is now pure and efficient. |
+| **🛡️ BERT Synonym Replacement** | **Smart Rewriting.** Uses BERT to intelligently replace up to 20% of words with contextually appropriate synonyms, significantly reducing AI detection rates while preserving meaning. |
 
 ### 🛠️ Installation & Usage
 
@@ -44,8 +44,10 @@
 
 2.  **Install Dependencies**:
     ```bash
-    pip install PyQt6
+    pip install PyQt6 transformers torch
     ```
+
+    > **Note:** The first time you run the magic function, it will download the BERT model (approx. 400MB). Please ensure you have a stable internet connection.
 
 3.  **Run the App**:
     ```bash
@@ -66,7 +68,7 @@
 | **🪄 文本魔法** | 引入随机变化，打破 AI 固有的生成模式。 |
 | **🎨 智能排版** | 自动处理段落间距，无需手动调整。 |
 | **⚡ 双重魔法** | 独特的二次处理机制，效果加倍。 |
-| **🛡️ 去除 BERT** | **轻量化设计**。我们移除了 BERT 模型以避免语义扭曲。现在的算法专注于 15% 的大小写微调与随机空格，安全且高效。 |
+| **🛡️ BERT 智能替换** | **深度人性化**。引入 BERT 模型，智能替换不超过 20% 的词汇为同义词。利用上下文感知能力，在保留原意的基础上大幅降低 AI 检出率。 |
 
 ### 🛠️ 使用指南
 
@@ -78,8 +80,10 @@
 
 2.  **安装依赖**:
     ```bash
-    pip install PyQt6
+    pip install PyQt6 transformers torch
     ```
+
+    > **注意**：首次使用魔法功能时，程序会自动下载 BERT 模型（约 400MB）。请确保网络连接畅通。
 
 3.  **运行程序**:
     ```bash
