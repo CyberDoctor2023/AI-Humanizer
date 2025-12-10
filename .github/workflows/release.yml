@@ -1,13 +1,15 @@
-name: Build macOS DMG
+name: Release macOS DMG
 
 on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
 
 jobs:
-  build:
-    name: Build DMG
+  build-and-release:
+    name: Build & Release DMG
     runs-on: macos-latest
     
     steps:
@@ -28,8 +30,7 @@ jobs:
     - name: Build DMG
       run: bash build.sh
       
-    - name: Upload DMG Artifact
-      uses: actions/upload-artifact@v4
+    - name: Upload Release Asset
+      uses: softprops/action-gh-release@v2
       with:
-        name: AI-Text-Humanizer-DMG
-        path: dist/*.dmg
+        files: dist/*.dmg
