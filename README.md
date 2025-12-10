@@ -11,11 +11,13 @@
 
 ### Key Features
 - **Perturbation Magic**: Introduces random variations to make text appear less machine-generated.
-- **Adjustable Probability**: Three levels of intensity (Low, Medium, High).
+- **Smart Formatting**: Automatically handles paragraph spacing.
 - **Double Magic**: Apply recursive processing for stronger effects.
 
 ### Note on BERT Removal
-Previously, this project utilized the **BERT** model for synonym replacement. However, it was observed that BERT caused **excessive perturbation**, often altering the original meaning or making the text sound unnatural. Therefore, the BERT model has been **completely removed** to focus on spacing and capitalization nuances which are more effective for this specific purpose.
+Previously, this project utilized the **BERT** model for synonym replacement. However, it was observed that BERT caused **excessive perturbation**, often altering the original meaning or making the text sound unnatural. Therefore, the BERT model has been **completely removed**. The tool now uses a tuned algorithm ensuring:
+- **Capitalization Variations** (~15% chance).
+- **Random Spacing** to break AI detection patterns.
 
 ### Installation & Usage
 
@@ -41,11 +43,13 @@ Previously, this project utilized the **BERT** model for synonym replacement. Ho
 
 ### 主要功能
 - **文本魔法**: 引入随机变化，使文本看起来不那么像机器生成的。
-- **可调节概率**: 提供低、中、高三种强度等级。
+- **智能格式化**: 自动处理段落间距。
 - **双重魔法**: 进行递归处理以获得更强的效果。
 
 ### 关于移除 BERT 模型的说明
-本项目最初使用 **BERT** 模型进行同义词替换。然而，经过测试发现，BERT 造成的**扰动过大 (excessive perturbation)**，往往会改变原本的含义或使文本读起来不自然。因此，我们**彻底移除了 BERT 模型**，转而专注于更有效的空格和大小写微调。
+本项目最初使用 **BERT** 模型进行同义词替换。然而，经过测试发现，BERT 造成的**扰动过大 (excessive perturbation)**，往往会改变原本的含义或使文本读起来不自然。因此，我们**彻底移除了 BERT 模型**，转而使用微调后的算法，专注于：
+- **大小写变化**: 约 15% 的概率。
+- **随机空格**: 打破 AI 检测模式。
 
 ### 安装与使用
 
