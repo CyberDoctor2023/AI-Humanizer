@@ -1,7 +1,7 @@
 
 <div align="center">
 
-# 🪄 AI Humanizer | 杰哥的降AI工具
+# 🪄 AI Humanizer | AI 文本人性化
 
 [![License](https://img.shields.io/github/license/CyberDoctor2023/AI-Humanizer?style=flat-square&label=License&color=007EC6)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
