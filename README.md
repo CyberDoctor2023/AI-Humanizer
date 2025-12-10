@@ -32,7 +32,9 @@
 | **🪄 Perturbation Magic** | Introduces random variations to make text appear less machine-generated. |
 | **🎨 Smart Formatting** | Automatically handles paragraph spacing for better readability. |
 | **⚡ Double Magic** | Applies recursive processing layers for stronger, more natural effects. |
-| **🛡️ BERT Synonym Replacement** | **Smart Rewriting.** Uses BERT to intelligently replace up to 20% of words with contextually appropriate synonyms, significantly reducing AI detection rates while preserving meaning. |
+| **🛡️ BERT Synonym Replacement** | **Smart Rewriting.** Uses `bert-base` to contextually replace < 20% of words with synonyms. |
+| **🔠 Random Case Swaps** | **15% Probability.** Randomly swaps the case of the first letter in words > 1 character. |
+| **📏 Elastic Spacing** | **Punctuation Spacing.** Randomizes spaces after punctuation (33% none, 33% double, 33% normal, 1% triple). |
 
 ### 🛠️ Installation & Usage
 
@@ -68,7 +70,9 @@
 | **🪄 文本魔法** | 引入随机变化，打破 AI 固有的生成模式。 |
 | **🎨 智能排版** | 自动处理段落间距，无需手动调整。 |
 | **⚡ 双重魔法** | 独特的二次处理机制，效果加倍。 |
-| **🛡️ BERT 智能替换** | **深度人性化**。引入 BERT 模型，智能替换不超过 20% 的词汇为同义词。利用上下文感知能力，在保留原意的基础上大幅降低 AI 检出率。 |
+| **🛡️ BERT 智能替换** | **深度人性化**。使用 BERT 模型智能替换 < 20% 的词汇，保留上下文语义。 |
+| **🔠 随机大小写** | **15% 概率**。对长度大于 1 的单词，有 15% 的概率反转首字母大小写，模拟输入失误。 |
+| **📏 弹性间距** | **标点后间距**。标点符号后的空格随机变化（33%无空格，33%双空格，33%标准，1%三空格）。 |
 
 ### 🛠️ 使用指南
 
