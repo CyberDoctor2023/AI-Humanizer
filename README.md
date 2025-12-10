@@ -1,67 +1,92 @@
-# AI Humanizer / AI 文本人性化
 
-[English Setup](#english) | [中文说明](#chinese)
+<div align="center">
+
+# 🪄 AI Humanizer | 杰哥的降AI工具
+
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![PyQt6](https://img.shields.io/badge/GUI-PyQt6-green?style=for-the-badge&logo=qt&logoColor=white)](https://riverbankcomputing.com/software/pyqt/)
+[![License](https://img.shields.io/badge/License-MIT-orange?style=for-the-badge)](LICENSE)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg?style=for-the-badge)](https://github.com/CyberDoctor2023/AI-Humanizer/graphs/commit-activity)
+
+**A lightweight, magic tool to make AI-generated text feel human again.**  
+**一个让 AI 生成文本重返“人性”的轻量级魔法工具。**
+
+[English](#english) | [中文](#chinese)
+
+<img src="assets/screenshot.png" alt="AI Humanizer UI Preview" width="600" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 20px 0;"/>
+
+</div>
 
 ---
 
 <a name="english"></a>
-## English Description
+## 🚀 English Description
 
-**AI Humanizer** is a lightweight text processing tool designed to introduce subtle "human-like" imperfections into text.
+**AI Humanizer** is a specialized text processing tool designed to introduce subtle, natural imperfections into clean AI-generated text. By strategically adjusting capitalization and spacing, it breaks the rigid patterns often detected by AI detectors.
 
-### Key Features
-- **Perturbation Magic**: Introduces random variations to make text appear less machine-generated.
-- **Smart Formatting**: Automatically handles paragraph spacing.
-- **Double Magic**: Apply recursive processing for stronger effects.
+### ✨ Key Features
 
-### Note on BERT Removal
-Previously, this project utilized the **BERT** model for synonym replacement. However, it was observed that BERT caused **excessive perturbation**, often altering the original meaning or making the text sound unnatural. Therefore, the BERT model has been **completely removed**. The tool now uses a tuned algorithm ensuring:
-- **Capitalization Variations** (~15% chance).
-- **Random Spacing** to break AI detection patterns.
+| Feature | Description |
+|---------|-------------|
+| **🪄 Perturbation Magic** | Introduces random variations to make text appear less machine-generated. |
+| **🎨 Smart Formatting** | Automatically handles paragraph spacing for better readability. |
+| **⚡ Double Magic** | Applies recursive processing layers for stronger, more natural effects. |
+| **🛡️ BERT-Free** | **No heavy models.** We removed BERT to prevent meaning distortion. Logic is now pure and efficient. |
 
-### Installation & Usage
+### 🛠️ Installation & Usage
 
-1. **Requirements**:
-   - Python 3.x
-   - PyQt6
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/CyberDoctor2023/AI-Humanizer.git
+    cd AI-Humanizer
+    ```
 
-   ```bash
-   pip install PyQt6
-   ```
+2.  **Install Dependencies**:
+    ```bash
+    pip install PyQt6
+    ```
 
-2. **Run the application**:
-   ```bash
-   python ai文本人性化.py
-   ```
+3.  **Run the App**:
+    ```bash
+    python ai文本人性化.py
+    ```
 
 ---
 
 <a name="chinese"></a>
-## 中文说明
+## 🇨🇳 中文说明
 
-**AI 文本人性化 (AI Humanizer)** 是一个轻量级的文本处理工具，旨在通过引入细微的“人性化”瑕疵，让文本看起来更像是人类书写的。
+**AI 文本人性化 (AI Humanizer)** 是一款专为打破 AI 生成文本“机械感”而设计的工具。通过引入细微的格式“瑕疵”，让您的文本读起来更有温度，更像人类的自然表达。
 
-### 主要功能
-- **文本魔法**: 引入随机变化，使文本看起来不那么像机器生成的。
-- **智能格式化**: 自动处理段落间距。
-- **双重魔法**: 进行递归处理以获得更强的效果。
+### ✨ 核心功能
 
-### 关于移除 BERT 模型的说明
-本项目最初使用 **BERT** 模型进行同义词替换。然而，经过测试发现，BERT 造成的**扰动过大 (excessive perturbation)**，往往会改变原本的含义或使文本读起来不自然。因此，我们**彻底移除了 BERT 模型**，转而使用微调后的算法，专注于：
-- **大小写变化**: 约 15% 的概率。
-- **随机空格**: 打破 AI 检测模式。
+| 功能 | 说明 |
+|------|------|
+| **🪄 文本魔法** | 引入随机变化，打破 AI 固有的生成模式。 |
+| **🎨 智能排版** | 自动处理段落间距，无需手动调整。 |
+| **⚡ 双重魔法** | 独特的二次处理机制，效果加倍。 |
+| **🛡️ 去除 BERT** | **轻量化设计**。我们移除了 BERT 模型以避免语义扭曲。现在的算法专注于 15% 的大小写微调与随机空格，安全且高效。 |
 
-### 安装与使用
+### 🛠️ 使用指南
 
-1. **环境要求**:
-   - Python 3.x
-   - PyQt6
+1.  **克隆项目**:
+    ```bash
+    git clone https://github.com/CyberDoctor2023/AI-Humanizer.git
+    cd AI-Humanizer
+    ```
 
-   ```bash
-   pip install PyQt6
-   ```
+2.  **安装依赖**:
+    ```bash
+    pip install PyQt6
+    ```
 
-2. **运行程序**:
-   ```bash
-   python ai文本人性化.py
-   ```
+3.  **运行程序**:
+    ```bash
+    python ai文本人性化.py
+    ```
+
+---
+
+<div align="center">
+  <sub>Built with ❤️ by CyberDoctor2023</sub>
+</div>
